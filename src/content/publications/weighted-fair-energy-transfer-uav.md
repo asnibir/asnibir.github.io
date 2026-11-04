@@ -29,3 +29,4 @@ bibtex: |
 abstract: "Unmanned aerial vehicles (UAVs) equipped with wireless power transfer (WPT) capabilities offer an agile solution to sustain energy-constrained IoT devices in remote or sensor-rich environments. However, achieving equitable and efficient energy replenishment across devices with diverse demands and dynamic channel conditions remains challenging. In this paper, we develop a multi-agent deep reinforcement learning (MADRL) framework that jointly schedules UAV trajectories, dwell times, and wireless energy transfer. The formulation incorporates weighted fairness constraints to prevent starvation of geographically disadvantaged or low-battery nodes while optimizing aggregate energy transfer and UAV power efficiency. Extensive simulations validate that our approach significantly outperforms traditional heuristic and baseline RL methods in fairness and energy delivery."
 order: 1
 ---
+
