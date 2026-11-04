@@ -1,0 +1,110 @@
+---
+// BaseLayout.astro
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'Abu Shaikh Nibir | Researcher & Software Engineer',
+  description = 'Portfolio and academic homepage of Abu Shaikh Nibir — Researcher specializing in Multi-Agent Deep Reinforcement Learning, UAV Networks, and Frontend Software Engineering. Actively seeking PhD opportunities.',
+  canonicalUrl = 'https://asnibir.github.io/',
+} = Astro.props;
+
+const siteUrl = 'https://asnibir.github.io';
+const ogImage = `${siteUrl}/images/profile.jpg`;
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Abu Shaikh Nibir',
+  jobTitle: 'Software Engineer & Researcher',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Dohatec New Media',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'University of Dhaka',
+  },
+  url: siteUrl,
+  image: ogImage,
+  email: 'mailto:abushaikhnibir@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dhaka',
+    addressCountry: 'Bangladesh',
+  },
+  sameAs: [
+    'https://github.com/asnibir',
+    'https://www.linkedin.com/in/abu-shaikh-nibir/',
+    'https://leetcode.com/AbuNibir/',
+    'https://codeforces.com/profile/nibir.24csedu.003',
+    'https://lightoj.com/user/nibir-24csed',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Robots & Sitemap -->
+    <meta name="robots" content="index, follow" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+
+    <!-- Inline script to set theme class immediately before page paint (prevents FOUC) -->
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen text-stone-800 dark:text-stone-200 antialiased selection:bg-teal-500/20 selection:text-teal-900 dark:selection:text-teal-200">
+    <Nav />
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Footer />
+    </div>
+  </body>
+</html>

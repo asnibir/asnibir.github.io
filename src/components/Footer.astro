@@ -1,0 +1,32 @@
+---
+// Footer.astro
+---
+
+<footer class="py-8 mt-12 border-t border-stone-200/80 dark:border-stone-800/80 font-mono text-xs text-stone-500 dark:text-stone-400">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+      <span>&copy; 2026 Abu Shaikh Nibir.</span>
+      <span class="text-stone-300 dark:text-stone-700 select-none">|</span>
+      <span>
+        Built with <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-teal-600 dark:text-teal-400 hover:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-500 rounded"
+        >Astro</a> &amp; Tailwind CSS.
+      </span>
+    </div>
+
+    <!-- Back to top button -->
+    <a
+      href="#hero"
+      class="inline-flex items-center gap-1.5 hover:text-teal-600 dark:hover:text-teal-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-500 rounded py-0.5 px-1"
+      aria-label="Back to top"
+    >
+      <span>Back to top</span>
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </a>
+  </div>
+</footer>

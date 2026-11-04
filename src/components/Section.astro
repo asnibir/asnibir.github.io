@@ -1,0 +1,22 @@
+---
+// Section.astro
+interface Props {
+  id: string;
+  number: string;
+  title: string;
+  class?: string;
+}
+
+const { id, number, title, class: className = '' } = Astro.props;
+---
+
+<section id={id} class={`py-10 sm:py-12 scroll-mt-16 border-b border-stone-200/60 dark:border-stone-800/60 last:border-b-0 ${className}`}>
+  <div class="mb-6 flex items-center gap-2">
+    <h2 class="font-mono text-xs sm:text-sm font-semibold tracking-wider uppercase text-teal-600 dark:text-teal-400 flex items-center gap-2">
+      <span class="text-stone-400 dark:text-stone-600 select-none">{number} //</span>
+      <span class="text-stone-900 dark:text-stone-100">{title}</span>
+    </h2>
+    <div class="h-px flex-1 bg-stone-200/80 dark:bg-stone-800/80 ml-2" aria-hidden="true"></div>
+  </div>
+  <slot />
+</section>

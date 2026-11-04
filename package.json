@@ -1,0 +1,36 @@
+{
+  "name": "asnibir.github.io",
+  "version": "1.0.0",
+  "description": "Abu Shaikh Nibir - Academic & Developer Portfolio",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "start": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check"
+  },
+  "keywords": [
+    "portfolio",
+    "astro",
+    "academic",
+    "research",
+    "reinforcement-learning",
+    "frontend-engineer"
+  ],
+  "author": "Abu Shaikh Nibir <abushaikhnibir@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.5",
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/jetbrains-mono": "^5.1.2",
+    "astro": "^4.16.18",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.6.3"
+  }
+}

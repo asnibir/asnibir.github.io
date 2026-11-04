@@ -1,0 +1,9 @@
+---
+title: "Machine Learning Specialization"
+provider: "DeepLearning.AI & Stanford Online"
+# TODO: Replace with the actual completion year (e.g. "2023")
+year: "TODO"
+# TODO: Replace with the Coursera verification URL (e.g. "https://coursera.org/verify/...")
+verifyUrl: "https://coursera.org/verify/TODO"
+order: 1
+---
