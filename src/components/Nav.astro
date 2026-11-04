@@ -15,22 +15,22 @@ const navItems = [
 ---
 
 <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-stone-50/90 dark:bg-stone-950/90 border-b border-stone-200/80 dark:border-stone-800/80 transition-colors">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 gap-6">
       <!-- Monospace Brand / Logo -->
       <a
         href="#hero"
-        class="font-mono text-sm font-semibold tracking-tight text-stone-900 dark:text-stone-100 hover:text-teal-600 dark:hover:text-teal-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1 -mx-1 transition-colors"
+        class="font-mono text-sm sm:text-base font-semibold tracking-tight text-stone-900 dark:text-stone-100 hover:text-teal-600 dark:hover:text-teal-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded px-1.5 py-1 -mx-1 transition-colors shrink-0"
       >
         <span class="text-teal-600 dark:text-teal-400">~</span>/asnibir
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-4 text-xs font-mono" aria-label="Main Navigation">
+      <!-- Desktop Navigation with generous spacing -->
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs sm:text-sm font-mono" aria-label="Main Navigation">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-stone-600 dark:text-stone-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-500 rounded"
+            class="text-stone-600 dark:text-stone-400 hover:text-teal-600 dark:hover:text-teal-400 px-1 py-1 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-500 rounded"
           >
             {item.label}
           </a>
@@ -38,7 +38,7 @@ const navItems = [
       </nav>
 
       <!-- Right controls: Theme toggle & Mobile menu button -->
-      <div class="flex items-center gap-1">
+      <div class="flex items-center gap-2 shrink-0">
         <ThemeToggle />
 
         <!-- Mobile hamburger button -->
@@ -80,13 +80,13 @@ const navItems = [
   <!-- Mobile Collapsible Menu -->
   <div
     id="mobile-menu"
-    class="hidden lg:hidden border-b border-stone-200 dark:border-stone-800 bg-stone-50/98 dark:bg-stone-950/98 px-4 pt-2 pb-4 space-y-1"
+    class="hidden lg:hidden border-b border-stone-200 dark:border-stone-800 bg-stone-50/98 dark:bg-stone-950/98 px-4 pt-2 pb-5 space-y-1"
   >
-    <nav class="flex flex-col space-y-1 font-mono text-sm" aria-label="Mobile Navigation">
+    <nav class="flex flex-col space-y-1 font-mono text-sm sm:text-base" aria-label="Mobile Navigation">
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="mobile-nav-link block px-3 py-1.5 rounded text-stone-700 dark:text-stone-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+          class="mobile-nav-link block px-3 py-2 rounded text-stone-700 dark:text-stone-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
         >
           {item.label}
         </a>
@@ -141,4 +141,3 @@ const navItems = [
   setupMobileMenu();
   document.addEventListener('astro:after-swap', setupMobileMenu);
 </script>
-
