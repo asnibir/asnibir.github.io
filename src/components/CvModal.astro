@@ -1,0 +1,158 @@
+---
+// CvModal.astro
+---
+
+<div
+  id="cv-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-stone-950/75 backdrop-blur-sm transition-opacity duration-200"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cv-modal-title"
+>
+  <!-- Backdrop click target -->
+  <div id="cv-modal-backdrop" class="absolute inset-0 cursor-pointer" aria-hidden="true"></div>
+
+  <!-- Modal Container -->
+  <div class="relative z-10 w-full max-w-4xl h-[90vh] sm:h-[86vh] flex flex-col rounded-xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-stone-200 dark:border-stone-800 bg-stone-100/90 dark:bg-stone-950/90 shrink-0">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        <h3 id="cv-modal-title" class="font-mono text-xs sm:text-sm font-semibold text-stone-900 dark:text-stone-100">
+          <span class="text-teal-600 dark:text-teal-400">~/</span>cv.pdf
+        </h3>
+        <span class="text-xs font-mono text-stone-500 dark:text-stone-400 hidden sm:inline">&mdash; Abu Shaikh Nibir</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Download Button -->
+        <a
+          href="/cv.pdf"
+          download="Abu_Shaikh_Nibir_CV.pdf"
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-teal-600 text-white dark:bg-teal-500 dark:text-stone-950 font-mono text-xs sm:text-sm font-semibold hover:bg-teal-700 dark:hover:bg-teal-400 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+          title="Download CV as PDF"
+        >
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Download</span>
+        </a>
+
+        <!-- Open in New Tab -->
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 hover:border-teal-500 font-mono text-xs sm:text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-teal-500"
+          title="Open PDF in new browser tab"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+          <span>New Tab</span>
+        </a>
+
+        <!-- Close Button -->
+        <button
+          id="close-cv-modal"
+          type="button"
+          class="p-1.5 rounded-md text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 hover:bg-stone-200/60 dark:hover:bg-stone-800/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+          aria-label="Close CV preview"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal Body: Embedded PDF Viewer -->
+    <div class="flex-1 w-full h-full bg-stone-100 dark:bg-stone-950 relative overflow-hidden">
+      <object
+        data="/cv.pdf#toolbar=1&navpanes=0"
+        type="application/pdf"
+        class="w-full h-full"
+        title="Abu Shaikh Nibir CV Preview"
+      >
+        <iframe
+          src="/cv.pdf#toolbar=1&navpanes=0"
+          class="w-full h-full border-0"
+          title="Abu Shaikh Nibir CV Preview"
+        >
+          <!-- Fallback if browser does not support inline PDF iframe -->
+          <div class="h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
+            <p class="text-sm sm:text-base font-sans text-stone-700 dark:text-stone-300 max-w-md">
+              Your browser does not support inline PDF viewing. You can download the CV directly or view it in a new tab.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="/cv.pdf"
+                download="Abu_Shaikh_Nibir_CV.pdf"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-teal-600 text-white font-mono text-xs sm:text-sm font-semibold hover:bg-teal-700 transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Download CV (PDF)</span>
+              </a>
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 font-mono text-xs sm:text-sm transition-colors"
+              >
+                <span>Open in New Tab &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </iframe>
+      </object>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupCvModal() {
+    const modal = document.getElementById('cv-modal');
+    const openBtns = document.querySelectorAll('.open-cv-modal-btn');
+    const closeBtn = document.getElementById('close-cv-modal');
+    const backdrop = document.getElementById('cv-modal-backdrop');
+
+    if (!modal) return;
+
+    function openModal() {
+      modal?.classList.remove('hidden');
+      modal?.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal?.classList.add('hidden');
+      modal?.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    openBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+    backdrop?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  }
+
+  setupCvModal();
+  document.addEventListener('astro:after-swap', setupCvModal);
+</script>
+

@@ -8,6 +8,7 @@ import TagList from '../components/TagList.astro';
 import PublicationCard from '../components/PublicationCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
+import CvModal from '../components/CvModal.astro';
 
 // Fetch structured data from content collections
 const publications = await getCollection('publications');
@@ -344,4 +345,7 @@ const competitiveProfiles = [
       </div>
     </div>
   </Section>
+
+  <!-- CV Preview & Download Modal -->
+  <CvModal />
 </BaseLayout>
